@@ -1,26 +1,30 @@
 # Hydraulic Balancing
 
-Der unten beschriebene hydraulische Abgleich für Fußbodenheizungen wird gemäß des **Rücklauftemperatur-Verfahrens** durchgeführt.
+Der unten beschriebene hydraulische Abgleich für Fußbodenheizungen wird **gemäß eines Rücklauftemperatur-Verfahrens** durchgeführt.
 
 Durch den **Abgleich aller Heizschleifen auf die gleiche Rücklauf Mitteltemperatur** ist ein sehr genauer hydraulischer Abgleich möglich,
-der die tatsächlichen Gegebenheiten der Anlage unter Berücksichtigung aller Einflussfaktoren widerspiegelt.
+der die tatsächlichen Gegebenheiten der Anlage unter Berücksichtigung aller Gebäude- und Heizkreis-Einflussfaktoren widerspiegelt.
 
-Diese Informationen werden im Regelbetrieb dann als Basis für den sich stetig anpassenden **dynamischen hydraulischen Abgleich** verwendet.
+Durch eine laufende Analyse der Verläufe Aussen-, Raum-, Vorlauf- und Rücklauftemperaturen und unter Berücksichtigung von Wettervorhersage-Daten wird zu jedem Zeitpunkt die optimale Fußbodentemperatur errechnet.
+Diese Informationen werden im Regelbetrieb dann als Basis eines sich stetig anpassenden **dynamischen hydraulischen Abgleich** verwendet.
 
-Probleme bei konventionellen Berechnungsmethoden / Abgleichsverfahren / Setups:
+## Probleme bei konventionellen Berechnungsmethoden / Abgleichsverfahren / Setups
 
 - Gerade im Bestand können die für eine genaue Berechnung notwendigen Rohrlängen, Rohquerschnitte und Verlegeabstände meist nur geschätzt werden
-- Temperaturverluste im Verteilsystem werden bei der Berechnung generell nicht berücksichtigt
-- Fest eingestellte Durchflussbegrenzer
-- Konventionelle On/Off Stellantriebe
+- Temperatur- und Druckverluste im Verteilsystem werden bei der Berechnung generell nur unzuläglich berücksichtigt
 
-Weiters ist ein konventioneller statischer hydraulischer Abgleich immer nur für eine einzige Betriebssituation ausgelegt:
+Durch den Einsatz von
 
-- **VOLLLAST** für ALLE Räume.
+- Fest eingestellter Durchflussbegrenzer
+- Konventioneller On/Off Stellantriebe
+
+ist ein konventioneller statischer hydraulischer Abgleich immer **nur für eine einzige Betriebssituation ausgelegt**:
+
+- **VOLLLAST für ALLE Räume**.
 
 Dies spiegelt aber die Realität nur sehr selten wieder.
 
-# Dynamic Hydraulic Balancing
+## Dynamic Hydraulic Balancing
 
 Ein **dynamischer hydraulischer Abgleich** passt dagegen den hydraulischen Abgleich für jede Betriebssituation dynamisch an.
 Durch den Einsatz von **stufenlos einstellbaren Stellantrieben** werden die Durchflussmengen für jede Betriebssituation dynamisch angepasst.
