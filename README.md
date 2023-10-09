@@ -5,7 +5,7 @@ Der unten beschriebene hydraulische Abgleich für Fußbodenheizungen wird **gem�
 Durch den **Abgleich aller Heizschleifen auf die gleiche Rücklauf Mitteltemperatur** ist ein sehr genauer hydraulischer Abgleich möglich,
 der die tatsächlichen Gegebenheiten der Anlage unter Berücksichtigung aller Gebäude- und Heizkreis-Einflussfaktoren widerspiegelt.
 
-Durch eine laufende Analyse der Verläufe Aussen-, Raum-, Vorlauf- und Rücklauftemperaturen und unter Berücksichtigung von Wettervorhersage-Daten wird zu jedem Zeitpunkt die optimale Fußbodentemperatur errechnet.
+Durch eine laufende Analyse der Verläufe von Aussen-, Raum-, Vorlauf- und Rücklauftemperaturen und unter Berücksichtigung von Wettervorhersage-Daten wird zu jedem Zeitpunkt die optimale Fußbodentemperatur errechnet.
 Diese Informationen werden im Regelbetrieb dann als Basis eines sich stetig anpassenden **dynamischen hydraulischen Abgleich** verwendet.
 
 ## Probleme bei konventionellen Berechnungsmethoden / Abgleichsverfahren / Setups
@@ -46,14 +46,14 @@ Erfahrungsgemäß funktioniert die nachfolgende Vorgehensweise sehr gut:
 - Heizen Sie alle Räume im Haus auf die gleiche Temperatur (z.B. 20°C).
 Diese Temperatur muss für mindestens 24 Stunden gleichmäßig gehalten werden.
 - Schalten Sie danach alle Räume für 24 Stunden aus.
-Alternativ (z.B. bei sehr kalten Außentemperaturen) so lange ausschalten, bis jeder Raum um 1°C abgekühlt ist.
+Alternativ (z.B. bei sehr kalten Außentemperaturen) so lange ausschalten, bis jeder Raum um 2°C abgekühlt ist.
 
-Es ist unumgänglich, diese Schritte vor dem Start des Plugins durchzuführen.
+Es ist unumgänglich, diese Schritte vor dem Start des hydraulischen Abgleichs durchzuführen.
 Das Ergebnis wird sonst nicht verwertbar sein.
 
 ## Durchflussmengenbegrenzer 100% öffnen (ausgenommen sehr kurze Heizschleifen)
 
-Alle Durchflussmengenbegrenzer müssen vor dem Start maximal geöffnet sein.
+Alle Durchflussmengenbegrenzer müssen vor dem Start des hydraulischen Abgleichs maximal geöffnet sein.
 
 Die Durchflussmengenbegrenzer bei Räumen mit bekannt sehr kurzen Heizschleifen können etwas zugedreht werden.
 Die Ventilöffnung sollte bei keinem Stellantrieb auf weniger als 25% begrenzt werden müssen.
@@ -67,23 +67,22 @@ Sofern Sie bei Plusgraden kein ausreichendes Ergebnis erhalten, wiederholen Sie 
 
 ## Heizungspumpe der Fußbodenheizung muss dauerhaft eingeschalten sein
 
-Stellen Sie sicher, dass die Fußbodenheizungspumpe während der Durchführung dauerhaft läuft.
+Stellen Sie sicher, dass die Fußbodenheizungspumpe während des hydraulischen Abgleichs dauerhaft läuft.
 Stellen Sie in der integrierten Steuerung Ihres Wärmeerzeugers die Pumpe bitte übergangsweise auf Dauerbetrieb.
 
 ## Ausreichende Vorlauftemperatur (auf Nachtabsenkung deaktivieren!)
 
-Für die Dauer der Testdurchläufe muss eine ausreichende Vorlauftemperatur sichergestellt sein.
+Für die Dauer des hydraulischen Abgleichs muss eine ausreichende Vorlauftemperatur sichergestellt sein.
 Der Wärmeerzeuger darf sich beispielsweise nicht in der Nachtabsenkung befinden.
 
 ## Weitere Einflüsse minimieren / ausschließen
 
-Während der Testdurchläufe dürfen keine Fenster oder Türen geöffnet sein, und es dürfen keine zusätzlichen Wärmequellen (z.B. Kachelöfen) die Messungen verfälschen.
+Während des hydraulischen Abgleichs dürfen keine Fenster oder Türen geöffnet sein, und es dürfen keine zusätzlichen Wärmequellen (z.B. Kachelöfen) die Messungen verfälschen.
 Ebenso sollten externe Effekte wie z.B. Sonneneinstrahlung durch Testdurchläufe nach Sonnenuntergang ausgeschlossen werden.
 
 # Durchführung und Arbeitsschritte
 
 Der hydraulische Abgleich über das Rücklauftemperatur-Verfahren erfolgt in folgenden aufeinander aufbauenden Schritten.
-https://www.controme.com/hydraulischer-abgleich/
 
 1) Automatischer statischer hydraulischer Abgleich
 2) Dynamischer hydraulischer Maximalabgleich (DHMA) mit Maximaldurchfluss-Anpassung
@@ -94,58 +93,41 @@ https://www.controme.com/hydraulischer-abgleich/
 Beim automatischen statischen hydraulischen Abgleich werden alle Heizkreisverteiler und alle Heizkreise des Gebäudes gleichzeitig einbezogen und untereinander valide mittels des Rücklauftemperatur-Verfahrens abgeglichen.
 Die Durchflussmengen werden über stufenlos einstellbare Stellantriebe so lange begrenzt, bis alle Heizschleifen die gleiche Rücklauftemperatur aufweisen.
 
-Hierbei werden zeitgleich die Rücklauftemperaturen in allen Heizkreisen gemessen und in einem Diagramm dargestellt.
-Nach jedem Durchlauf werden die Durchflussmengen der wärmsten Rückläufe begrenzt – so lange, bis alle Heizschleifen die gleiche Mitteltemperatur aufweisen.
+Hierbei werden in einem Testdurchlauf (z.B. 30 min) zeitgleich die Rücklauftemperaturen in allen Heizkreisen gemessen und in einem Diagramm dargestellt.
+Nach jedem Testdurchlauf werden die Durchflussmengen der wärmsten Rückläufe begrenzt (durch Anpassung der Ventilöffnungen der stufenlos einstellbaren Stellantriebe) – so lange, bis alle Heizschleifen die gleiche Mitteltemperatur aufweisen.
 
-
-
-
-
-
-
-
-
-a) Methodik der aktuellen Version des AHA-Plugins:
-Die Funktionsweise der aktuellen Version besteht darin, dass eine Testsequenz initiiert wird.
-Nach Abschluss der beispielsweise einstündigen Testsequenz werden die Ventilöffnungen der Stellantriebe einmalig angepasst,
-bevor die nächste Testsequenz mit den verbesserten Ventilöffnungen gestartet wird.
-
-Initialaktion
-Die Initialaktion öffnet alle ausgewählten Ventile für den eingestellten Zeitraum.
-Hintergrund dabei ist, einige physikalisch bedingte Verzögerungen abzudecken.
-Es dauert z.B. einige Minuten, bis das Controme Gateway das Öffnungssignal an die Stellantriebe sendet,
-die Stellantriebe benötigen wiederum ein paar Minuten, um tatsächlich zu öffnen.
-Des Weiteren sollten alle Heizschleifen zunächst für einige Minuten Durchfluss haben, bevor die Rücklauftemperaturen bewertet werden.
-
-1) Das AHA-Plugin öffnet alle Ventile für die eingestellte Zeit und stellt die Rücklauftemperaturen in einem Diagramm dar.
-2) Nach jedem Durchlauf wird für jeden Sensor der Mittelwert berechnet.
-   Die Differenz aller Mittelwerte ergibt das Ergebnis des AHA-Durchlaufs.
-3) NACH jedem Durchlauf werden die Ventilöffnungen der wärmsten Rückläufe verringert.
-   Die Maximalöffnungen werden für jedes Ventil auf der Geräteseite der Fußbodenheizungssteuerung(en)-PRO dargestellt.
-   Das AHA-Plugin passt also die dargestellten Maximalöffnungs-Werte (die Slider) am Ende jedes AHA-Durchlaufs automatisch an.
-4) Der darauf folgende Durchlauf wird mit den neuen Maximalöffnungen gestartet.
+1) Initialaktion
+   Öffnung aller Ventile für beispielsweise 30 min um einige physikalisch bedingte Verzögerungen abzudecken.
+   - Es dauert z.B. einige Minuten, bis das Controme Gateway das Öffnungssignal an die Stellantriebe sendet,
+   - die Stellantriebe benötigen wiederum ein paar Minuten, um tatsächlich zu öffnen.
+   - Des Weiteren sollten alle Heizschleifen zunächst für einige Minuten Durchfluss haben, bevor die Rücklauftemperaturen bewertet werden.
+   - Darstellung aller Rücklauftemperaturen in einem Diagramm.
+2) Start der ersten Testsequenz.
+3) Nach Abschluss der beispielsweise 30 min Testsequenz werden die Ventilöffnungen der stufenlos einstellbaren Stellantriebe einmalig angepasst.
+   - Nach jedem Durchlauf wird für jeden Sensor der Mittelwert berechnet.
+   - Die Differenz aller Mittelwerte ergibt das Ergebnis des Durchlaufs.
+   - NACH jedem Durchlauf werden die Ventilöffnungen der wärmsten Rückläufe verringert.
+   - Die Maximalöffnungen werden für jedes Ventil auf der Geräteseite der Fußbodenheizungssteuerung(en)-PRO dargestellt.
+   - Das AHA-Plugin passt also die dargestellten Maximalöffnungs-Werte (die Slider) am Ende jedes AHA-Durchlaufs automatisch an.
+4) Start der nächsten Testsequenz mit den neuen verbesserten Ventilöffnungen (Maximalöffnungs-Werte).
 5) Dieser Prozess wird so lange wiederholt, bis alle Heizschleifen eine Mitteltemperatur aufweisen, die um weniger als 2K voneinander abweicht.
 
-Bitte beachten:
-Während des AHA-Durchlaufs selbst werden die Maximalöffnungen nicht angepasst.
-Das Plugin wertet jeden AHA-Durchlauf am Ende aus und passt dann einmalig die einzelnen Maximalöffnungen an.
+**Wichtig**:
+Die Ventilöffnung sollte bei keinem Stellantrieb auf weniger als 25% begrenzt werden müssen.
+Diese Durchflussmengenbegrenzer müssen etwas zugedreht werden. 
+
+**Bitte beachten**:
+Während eines Durchlaufs selbst werden die Maximalöffnungen nicht angepasst.
+Das Plugin wertet jeden Durchlauf am Ende aus und passt dann einmalig die einzelnen Maximalöffnungen an.
 Es sind also IMMER mehrere Durchläufe notwendig, bis sich die Rücklauftemperaturen im gewünschten Bereich von 2K befinden.
 
-b) Methodik der NEUEN Version des AHA-Plugins: (Launch im Juli 2023):
-Statt des einmaligen anpassens der Ventilöffnungen am Ende einer Testsequenz werden die Ventilöffnungen kontinuierlich
-alle 3 Minuten während des Testlaufs angepasst. Am Ende der Testsequenz 
-setzt das Plugin die Maximalwerte der Ventilantriebe auf den Zeitpunkt, an dem die Differenzen der Rücklauftemperaturen am geringsten waren.
+## Schritt 2: Dynamischer hydraulischer Maximalabgleich mit Maximaldurchfluss-Anpassung
 
-–> zur Anleitung support.controme.com
-https://support.controme.com/hydraulischer-abgleich/
-
-## Schritt 2: Dynamischer hydraulischer Maximalabgleich (DHMA) mit Maximaldurchfluss-Anpassung
-
-Die im zuvor beschriebenen automatischen hydraulischen Abgleich (AHA) ermittelten maximalen Öffnungswerte für jede Heizschleife sind ausschließlich 
+Die im zuvor beschriebenen automatischen statischen hydraulischen Abgleich ermittelten maximalen Öffnungswerte für jede Heizschleife sind ausschließlich 
 für die Betriebssituation Vollast (“Alle Räume sollen aktuell mit maximaler und gleicher Menge an Wärmeenergie versorgt werden“) optimal.
 Diese Betriebssituation ist jedoch sehr selten.
 
-Der dynamische Abgleich Maximalabgleich (DHMA) berechnet deshalb aufbauend auf den im automatischen hydraulischen Abgleich ermittelten Werten,
+Der dynamische Abgleich Maximalabgleich (DHMA) berechnet deshalb aufbauend auf den im automatischen statischen hydraulischen Abgleich ermittelten Werten,
 individuell zu jeder Betriebssituation die maximal mögliche Ventilöffnung für jede Heizschleife.
 
 Der innovative DHMA-Regelalgorithmus berücksichtigt dabei alle aktuellen Betriebsinformationen und entscheidet intelligent für jede einzelne Heizschleife,
@@ -167,7 +149,8 @@ daraus unter Berücksichtigung von Wettervorhersage-Daten zu jedem Zeitpunkt die
 Entsprechend dem Ergebnis wird dann die tatsächliche Öffnung jedes Stellantriebs eingestellt.
 
 
-
+https://www.controme.com/hydraulischer-abgleich/
+https://support.controme.com/hydraulischer-abgleich/
 
 
 # Außentemperatur bzw. witterungsgeführte Rücklauftemperaturregelung
