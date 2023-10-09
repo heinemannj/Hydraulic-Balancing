@@ -1,3 +1,76 @@
+# Außentemperatur bzw. witterungsgeführte Rücklauftemperaturregelung
+
+Bei einer Vorlauftemperaturreglung gibt es nur eine geringe Rückmeldung, was von den Heizflächen tatsächlich verbraucht wird.
+Bei einer Rücklauftemperaturregelung kommt die Rückmeldung von den Heizflächen.
+
+- Das Heizungswasser kommt kälter zurück, wenn mehr verbraucht wird und die Regelung regelt entsprechend nach.
+- Genauso ist es umgekehrt.
+- Bei diesem Regelverfahren wird der Rücklauf zur Führungsgröße.
+- Die kontinuierliche Kontrolle der Rücklauftemperatur ermöglicht Rückschlüsse über den Wärmebedarf der Heizungsanlage bzw. des Hauses.
+
+## Rücklaufsolltemperatur / Rücklaufheizkurve
+
+Die Heizung (Wärmeproduzent) misst die Außentemperatur über einen Fühler und berechnet daraus über die Vorlaufheizkurve einen Vorlaufsolltemperaturwert pro Gruppe.
+In Abhängigkeit zum Vorlaufsolltemperaturwert wird die Rücklaufsolltemperatur durch Berechnung der Rücklaufheizkurve ermittelt.
+
+- Abhängig von der Witterungstemperatur wird mittels einer Vorlaufheizkurve eine Vorlaufsolltemperatur für die jeweilige Gruppe (Heizkreis) errechnet.
+  Die errechnete Vorlaufsolltemperatur kann mit einem einstellbaren Minimal- und Maximalwert begrenzt werden.
+- Die Rücklaufheizkurve ist eine um die Spreizung reduzierte Vorlaufheizkurve,
+  deshalb der Hydraulische Abgleich bzw. Thermische Abgleich bis zum Abwinken.
+  Aufgrund unterschiedlicher Leitungslängen und Durchflußstärken, reagieren Heizkreise unterschiedlich.
+- Berechnung der Spreizung und der resultierenden Rücklaufsolltemperatur für jede Gruppe (Heizkreis).
+
+## Rücklauftemperaturregelung
+
+Wenn die Rücklauftemperatur sich ihrem Sollwert nähert kann man davon ausgehen, dass die Räume warm sind und in jeden Raum die optimale Rücklauftemperatur zum Erreichen und Halten der gewünschten Raumtemperatur erreicht hat.
+
+- Die Rücklauftemperatur der Gruppe wird auf eine errechnete maximale Rücklauftemperatur begrenzt.
+  Das Ventil wird nun modulierend geschlossen, so dass die Rücklauftemperatur abnimmt.
+  Wenn sich der Energiebedarf ändert, kann bei modulierenden Brennern die Modulation geändert werden.
+  Mit modulierenden Brennern ist das die genialste Lösung, so laufen Brenner den ganzen Tag.
+- Wenn die gemessene Rücklauftemperatur höher als die errechnete maximale Rücklauftemperatur ist, wird mittels eines PID-Regler ein Kompensationswert errechnet und die Heizung (Wärmeproduzent) Vorlauftemperatur der Gruppe gesenkt.
+- Erreicht der Rücklauf die Ausschalttemperatur, wird der Brenner ausgeschaltet.
+- Es beginnt die Auskühlphase des Heizungswassers.
+- Die Vorlauftemperatur fällt sehr schnell auf das Temperaturniveau des Rücklaufs ab.
+- Wenn der Einschaltpunkt der Rücklauftemperatur erreicht wird, kann der Brenner starten.
+- Bei einstufigen Brennern verlängert es die Laufzeiten und verhindert häufige Brennerstarts (Takten).
+
+## Gemischte Regelung
+
+Die gemischte Regelung verwendet zusätzlich zu den Rücklaufsensoren einen Raumtemperatursensor.
+In der gemischten Regelung wird die Heizung (Wärmeproduzent) erst abgestellt, wenn die gewünschte Raumtemperatur tatsächlich erreicht ist. 
+
+Wenn die Rücklauftemperatur langsam ansteigt, dann wird von der Heizungsanlage viel Wärme abgenommen.
+- Die Thermostatventile sind geöffnet.
+- Es gibt wenig Fremdwärme.
+
+Steigt aber die Rücklauftemperatur schnell an, so ist der Wärmebedarf der Heizungsanlage geringer.
+- Hier sind einige Thermostatventile geschlossen, weil Fremdwärme vorhanden ist.
+
+Fällt die Rücklauftemperatur schnell, fordert die Heizungsanlage viel Wärme an.
+- Die Ventile sind offen.
+
+Generell unterscheidet man zwei Fälle:
+1. Allgemein zu hohe/niedrige Temperatur
+2. Sich zu langsam/schnell verändernde Temperaturen
+
+Der erste Fall lässt sich über die Solltemperatur des Raumes und ggf. eine Veränderung des Offsets der Heizkurve erreichen.
+Zu langsame/schnelle Anpassung an die Außentemperatur lässt sich durch eine Veränderung der Neigung der Heizkurve erreichen.
+
+Eine Energieeinsparung wird erreicht durch die
+- Verringerung der Taktung
+- Absenkung des Temperaturniveaus
+- Nutzung interner und externe Wärmegewinne
+
+Da dieses Regelungsprinzip in der Regel unbekannt ist bzw. nicht verstanden wird, wird es selten eingesetzt.
+Hierbei ist das Verhalten der Heizflächen, die Wasservolumenströme und das richtige Einregulieren anders.
+Eine Rücklauftemperaturregelung hat ein erhebliches Energieeinsparpotential, da sie sich dynamisch dem tatsächlichen Verbrauch anpasst.
+Dieses Prinzip funktioniert nur, wenn ein Hydraulischer Abgleich, und später ein Thermischer Abgleich, durchgeführt wurde.
+
+**Wichtig**:
+Die Grundlage für eine optimale Funktion einer Heizungsanlage ist ein fachgerechter hydraulischer Abgleich.
+
+
 # Hydraulic Balancing
 
 Der unten beschriebene hydraulische Abgleich für Fußbodenheizungen wird **gemäß eines Rücklauftemperatur-Verfahrens** durchgeführt.
@@ -44,9 +117,9 @@ Jedoch funktioniert es NICHT, seit Tagen/Wochen unbeheizte Räume zusammen mit s
 Erfahrungsgemäß funktioniert die nachfolgende Vorgehensweise sehr gut:
 
 - Heizen Sie alle Räume im Haus auf die gleiche Temperatur (z.B. 20°C).
-Diese Temperatur muss für mindestens 24 Stunden gleichmäßig gehalten werden.
+  Diese Temperatur muss für mindestens 24 Stunden gleichmäßig gehalten werden.
 - Schalten Sie danach alle Räume für 24 Stunden aus.
-Alternativ (z.B. bei sehr kalten Außentemperaturen) so lange ausschalten, bis jeder Raum um 2°C abgekühlt ist.
+  Alternativ (z.B. bei sehr kalten Außentemperaturen) so lange ausschalten, bis jeder Raum um 2°C abgekühlt ist.
 
 Es ist unumgänglich, diese Schritte vor dem Start des hydraulischen Abgleichs durchzuführen.
 Das Ergebnis wird sonst nicht verwertbar sein.
@@ -55,8 +128,11 @@ Das Ergebnis wird sonst nicht verwertbar sein.
 
 Alle Durchflussmengenbegrenzer müssen vor dem Start des hydraulischen Abgleichs maximal geöffnet sein.
 
+![image](https://github.com/heinemannj/Hydraulic-Balancing/assets/3251642/2fe91ee9-b41a-4412-8b91-ab9c3f1fd77e)
+
 Die Durchflussmengenbegrenzer bei Räumen mit bekannt sehr kurzen Heizschleifen können etwas zugedreht werden.
-Die Ventilöffnung sollte bei keinem Stellantrieb auf weniger als 25% begrenzt werden müssen.
+
+**Die Ventilöffnung sollte bei keinem Stellantrieb auf weniger als 25% begrenzt werden müssen.**
 
 ## Außentemperaturen <10°C
 
@@ -148,83 +224,15 @@ Dieser analysiert mit Deep-Learning Methoden die Verläufe der Raum- und Rückla
 daraus unter Berücksichtigung von Wettervorhersage-Daten zu jedem Zeitpunkt die optimale Fußbodentemperatur.
 Entsprechend dem Ergebnis wird dann die tatsächliche Öffnung jedes Stellantriebs eingestellt.
 
+# References
 
-https://www.controme.com/hydraulischer-abgleich/
-https://support.controme.com/hydraulischer-abgleich/
+- http://www.bosy-online.de/Einstellen_der_Heizkurve.htm
+- https://www.haustechnikdialog.de/SHKwissen/2481/Ruecklauftemperaturregelung
+- https://www.haustechnikdialog.de/SHKwissen/341/Heizkurve
+- https://www.controme.com/hydraulischer-abgleich/
+- https://support.controme.com/hydraulischer-abgleich/
 
-
-# Außentemperatur bzw. witterungsgeführte Rücklauftemperaturregelung
-
-http://www.bosy-online.de/Einstellen_der_Heizkurve.htm
-https://www.haustechnikdialog.de/SHKwissen/2481/Ruecklauftemperaturregelung
-https://www.haustechnikdialog.de/SHKwissen/341/Heizkurve
-
-Bei einer Vorlauftemperaturreglung gibt es nur eine geringe Rückmeldung, was von den Heizflächen tatsächlich verbraucht wird.
-Bei einer Rücklauftemperaturregelung kommt die Rückmeldung von den Heizflächen. Das Heizungswasser kommt kälter zurück,
-wenn mehr verbraucht wird und die Regelung regelt entsprechend nach. Genauso ist es umgekehrt.
-Bei diesem Regelverfahren wird der Rücklauf zur Führungsgröße. Die kontinuierliche Kontrolle der Rücklauftemperatur
-ermöglicht Rückschlüsse über den Wärmebedarf der Heizungsanlage bzw. des Hauses.
-
-Die Rücklaufsolltemperatur wird in Abhängigkeit der Außentemperatur eine ermittelt. Ein Regler schaltet den Brenner
-mit einer 6 K großen Hysterese. Während der Brennerlaufzeit liegt die Vorlauftemperatur 15 K über der Rücklauftemperatur.
-Wenn sich der Energiebedarf ändert, kann bei modulierenden Brennern die Modulation geändert werden.
-Erreicht der Rücklauf die Ausschalttemperatur, wird der Brenner ausgeschaltet. Es beginnt die Auskühlphase des Heizungswassers.
-Die Vorlauftemperatur fällt sehr schnell auf das Temperaturniveau des Rücklaufs ab. Wenn der Einschaltpunkt der Rücklauftemperatur
-erreicht wird, kann der Brenner starten.
-
-Die Grundlage für eine optimale Funktion einer Heizungsanlage ist ein fachgerechter hydraulischer Abgleich.
-Wenn die Rücklauftemperatur langsam ansteigt, dann wird von der Heizungsanlage viel Wärme abgenommen. Die Thermostatventile sind geöffnet.
-Es gibt wenig Fremdwärme. Steigt aber die Rücklauftemperatur schnell an, so ist der Wärmebedarf der Heizungsanlage geringer.
-Hier sind einige Thermostatventile geschlossen, weil Fremdwärme vorhanden ist.
-Fällt die Rücklauftemperatur schnell, fordert die Heizungsanlage viel Wärme an. Die Ventile sind offen.
-Eine Energieeinsparung wird erreicht durch die
-- Verringerung der Taktung
-- Absenkung des Temperaturniveaus
-- Nutzung interner und externe Wärmegewinne
-
-Da dieses Regelungsprinzip in der Regel unbekannt ist bzw. nicht verstanden wird, wird es selten eingesetzt.
-Hierbei ist das Verhalten der Heizflächen, die Wasservolumenströme und das richtige Einregulieren anders.
-Eine Rücklauftemperaturregelung hat ein erhebliches Energieeinsparpotential, da sie sich dynamisch
-dem tatsächlichen Verbrauch anpasst.
-Dieses Prinzip funktioniert nur, wenn ein Hydraulischer Abgleich, und später ein Thermischer Abgleich, durchgeführt wurde.
-
-Eine Lösung ist das Berechnen der Rücklaufheizkurve.
-Abhängig von der Witterungstemperatur wird mittels einer Heizkurve eine Vorlauftemperatur für die jeweilige Gruppe (Heizkreis) errechnet.
-Die errechnete Vorlauftemperatur kann mit einem einstellbaren Minimal- und Maximalwert begrenzt werden.
-Die Rücklauftemperatur der Gruppe wird auf eine errechnete maximale Rücklauftemperatur begrenzt.
-Diese maximale Rücklauftemperatur wird abhängig von der Witterungstemperatur mittels einer Heizkurve errechnet.
-Wenn die gemessene Rücklauftemperatur höher als die errechnete maximale Rücklauftemperatur ist,
-wird mittels eines PID-Regler ein Kompensationswert errechnet.
-Hiermit wird die gewünschte Vorlauftemperatur der Gruppe gesenkt.
-Das Ventil wird nun modulierend geschlossen, so dass die Rücklauftemperatur abnimmt.
-
-Die Rücklaufheizkurve ist eine um die Spreizung reduzierte Vorlaufheizkurve, deshalb der Hydraulische Abgleich bzw. Thermische Abgleich bis zum Abwinken.
-Wenn die Rücklauftemperatur sich ihrem Sollwert nähert kann man davon ausgehen, dass die Räume warm sind.
-Mit modulierenden Brennern ist das die genialste Lösung, so laufen Brenner den ganzen Tag.
-Bei einstufigen Brennern verlängert es die Laufzeiten und verhindert häufige Brennerstarts (Takten).
-
-Die Heizung misst die Außentemperatur über einen Fühler und berechnet daraus über die Heizkurve einen Temperaturwert.
-
-Die Controme Rücklaufregelung verwendet eine ebensolche Heizkurve,
-um für jeden Raum die optimale Rücklauftemperatur zum Erreichen und Halten der gewünschten Raumtemperatur
-in Abhängigkeit von der Außentemperatur zu ermitteln.
-
-Die Heizkurve orientiert sich dabei prinzipiell an der im Wärmeproduzenten eingestellten Heizkurve.
-Sie lässt sich aber für einzelne Räume individuell anpassen, um eine bestmögliche Regelung
-für jeden Raum mit seinen Eigenheiten zu erreichen.
-
-Die gemischte Regelung verwendet zusätzlich zu den Rücklaufsensoren einen Raumtemperatursensor.
-In der gemischten Regelung wird die Heizung erst abgestellt, wenn die gewünschte Raumtemperatur tatsächlich erreicht ist. 
-
-Aufgrund unterschiedlicher Leitungslängen und Durchflußstärken, reagieren Heizkreise unterschiedlich.
-Dem tragen wir in der controme Rücklaufregelung Rechnung dadurch, dass sich jeder Raum individuell konfigurieren lässt.
-
-Generell unterscheidet man zwei Fälle:
-allgemein zu hohe/niedrige Temperatur
-sich zu langsam/schnell verändernde Temperaturen
-
-Der erste Fall lässt sich über die Solltemperatur des Raumes und ggf. eine Veränderung des Offsets der Heizkurve erreichen.
-Zu langsame/schnelle Anpassung an die Außentemperatur lässt sich durch eine Veränderung der Neigung der Heizkurve erreichen.
+# xxxxxxxxxxxxxxxxxxxx
 
 FBx : Fussbodenheizkreis x
 TV  : Vorlauftemp.
