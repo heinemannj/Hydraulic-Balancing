@@ -1,12 +1,19 @@
 # Außentemperatur bzw. witterungsgeführte Rücklauftemperaturregelung
 
 Bei einer Vorlauftemperaturreglung gibt es nur eine geringe Rückmeldung, was von den Heizflächen tatsächlich verbraucht wird.
+
+![image](https://github.com/heinemannj/Hydraulic-Balancing/assets/3251642/cafa5bb7-554e-4a2e-a965-252028d84502)
+
 Bei einer Rücklauftemperaturregelung kommt die Rückmeldung von den Heizflächen.
 
 - Das Heizungswasser kommt kälter zurück, wenn mehr verbraucht wird und die Regelung regelt entsprechend nach.
 - Genauso ist es umgekehrt.
 - Bei diesem Regelverfahren wird der Rücklauf zur Führungsgröße.
 - Die kontinuierliche Kontrolle der Rücklauftemperatur ermöglicht Rückschlüsse über den Wärmebedarf der Heizungsanlage bzw. des Hauses.
+
+![image](https://github.com/heinemannj/Hydraulic-Balancing/assets/3251642/e8765d77-561e-47ea-854f-a3b7b4308eae)
+
+![image](https://github.com/heinemannj/Hydraulic-Balancing/assets/3251642/938bd45e-c12c-4ef2-91ac-22d82a385685)
 
 ## Rücklaufsolltemperatur / Rücklaufheizkurve
 
@@ -69,7 +76,7 @@ Dieses Prinzip funktioniert nur, wenn ein Hydraulischer Abgleich, und später ei
 
 **Wichtig**:
 Die Grundlage für eine optimale Funktion einer Heizungsanlage ist ein fachgerechter hydraulischer Abgleich.
-
+Die Rücklauftemperaturregelung funktioniert nur zu 100 % in hydraulisch einwandfrei abgeglichenen Systemen.
 
 # Hydraulic Balancing
 
