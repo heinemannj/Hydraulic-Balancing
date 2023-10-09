@@ -29,6 +29,8 @@ In Abhängigkeit zum Vorlaufsolltemperaturwert wird die Rücklaufsolltemperatur 
 
 ![image](https://github.com/heinemannj/Hydraulic-Balancing/assets/3251642/3e1ec560-4650-4f41-bf6f-5d031d97b5c0)
 
+![image](https://github.com/heinemannj/Hydraulic-Balancing/assets/3251642/c9090cd1-e96f-426e-b914-c783701e2f3b)
+
 ## Rücklauftemperaturregelung
 
 Wenn die Rücklauftemperatur sich ihrem Sollwert nähert kann man davon ausgehen, dass die Räume warm sind und in jeden Raum die optimale Rücklauftemperatur zum Erreichen und Halten der gewünschten Raumtemperatur erreicht hat.
