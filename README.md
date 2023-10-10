@@ -15,7 +15,7 @@ With return flow temperature heating control, the feedback comes from the heatin
 
 ![image](https://github.com/heinemannj/Hydraulic-Balancing/assets/3251642/938bd45e-c12c-4ef2-91ac-22d82a385685)
 
-## Return flow target temperature / return flow heating curve
+## Return flow target temperature, Return flow heating curve
 
 The heating (heat producer) measures the outside temperature via a sensor and uses the supply flow heating curve to calculate a target supply flow temperature for each heating group.
 Depending on this target supply flow temperature, the target return flow temperature is determined by calculating the return flow heating curve.
@@ -33,33 +33,33 @@ Depending on this target supply flow temperature, the target return flow tempera
 
 ## Return flow temperature heating control
 
-Wenn die Rücklauftemperatur sich ihrem Sollwert nähert kann man davon ausgehen, dass die Räume warm sind und in jeden Raum die optimale Rücklauftemperatur zum Erreichen und Halten der gewünschten Raumtemperatur erreicht hat.
+When the return flow temperature approaches its setpoint, it can be assumed that the rooms are warm and that each room has reached the optimal return flow temperature to achieve and maintain the desired room temperature.
 
-- Die Rücklauftemperatur der Gruppe wird auf eine errechnete maximale Rücklauftemperatur begrenzt.
-  Das Ventil wird nun modulierend geschlossen, so dass die Rücklauftemperatur abnimmt.
-  Wenn sich der Energiebedarf ändert, kann bei modulierenden Brennern die Modulation geändert werden.
-  Mit modulierenden Brennern ist das die genialste Lösung, so laufen Brenner den ganzen Tag.
-- Wenn die gemessene Rücklauftemperatur höher als die errechnete maximale Rücklauftemperatur ist, wird mittels eines PID-Regler ein Kompensationswert errechnet und die Heizung (Wärmeproduzent) Vorlauftemperatur der Gruppe gesenkt.
-- Erreicht der Rücklauf die Ausschalttemperatur, wird der Brenner ausgeschaltet.
-- Es beginnt die Auskühlphase des Heizungswassers.
-- Die Vorlauftemperatur fällt sehr schnell auf das Temperaturniveau des Rücklaufs ab.
-- Wenn der Einschaltpunkt der Rücklauftemperatur erreicht wird, kann der Brenner starten.
-- Bei einstufigen Brennern verlängert es die Laufzeiten und verhindert häufige Brennerstarts (Takten).
+- The return flow temperature of the heating group is limited to a calculated maximum return flow temperature.
+  The valve is now closed in a modulating manner so that the return flow temperature decreases.
+  If the energy consumption changes, the modulation can be changed for modulating burners.
+  With modulating burners this is the most ingenious solution, so burners run all day long.
+- If the measured return flow temperature is higher than the calculated maximum return flow temperature, a compensation value is calculated using a PID controller and the heating (heat producer) supply flow temperature of the heating group is reduced.
+- If the return flow reaches the switch-off temperature, the burner is switched off.
+- The cooling phase of the heating water begins.
+- The supply flow temperature drops very quickly to the temperature level of the return flow.
+- When the return flow temperature switch-on point is reached, the burner can start.
+- For single-stage burners, it extends the running times and prevents frequent burner starts (cycling).
 
 ## Combined heating control
 
-Die gemischte Regelung verwendet zusätzlich zu den Rücklaufsensoren einen Raumtemperatursensor.
-In der gemischten Regelung wird die Heizung (Wärmeproduzent) erst abgestellt, wenn die gewünschte Raumtemperatur tatsächlich erreicht ist. 
+The combined heating control uses a room temperature sensor in addition to the return flow sensors.
+In combined control, the heating (heat producer) is only switched off when the desired room temperature has actually been reached.
 
-Wenn die Rücklauftemperatur langsam ansteigt, dann wird von der Heizungsanlage viel Wärme abgenommen.
-- Die Thermostatventile sind geöffnet.
-- Es gibt wenig Fremdwärme.
+If the return flow temperature increases slowly, a lot of heat is being absorbed by the heating system.
+- The valves are open.
+- There is less external heat.
 
-Steigt aber die Rücklauftemperatur schnell an, so ist der Wärmebedarf der Heizungsanlage geringer.
-- Hier sind einige Thermostatventile geschlossen, weil Fremdwärme vorhanden ist.
+If the return flow temperature rises quickly, the heat requirement of the heating system is lower.
+- Some valves are closed here because external heat is present.
 
-Fällt die Rücklauftemperatur schnell, fordert die Heizungsanlage viel Wärme an.
-- Die Ventile sind offen.
+If the return flow temperature falls quickly, the heating system requires a lot of heat.
+- The valves are open.
 
 Generell unterscheidet man zwei Fälle:
 1. Allgemein zu hohe/niedrige Temperatur
@@ -78,9 +78,9 @@ Hierbei ist das Verhalten der Heizflächen, die Wasservolumenströme und das ric
 Eine Rücklauftemperaturregelung hat ein erhebliches Energieeinsparpotential, da sie sich dynamisch dem tatsächlichen Verbrauch anpasst.
 Dieses Prinzip funktioniert nur, wenn ein Hydraulischer Abgleich, und später ein Thermischer Abgleich, durchgeführt wurde.
 
-**Wichtig**:
-Die Grundlage für eine optimale Funktion einer Heizungsanlage ist ein fachgerechter hydraulischer Abgleich.
-Die Rücklauftemperaturregelung funktioniert nur zu 100 % in hydraulisch einwandfrei abgeglichenen Systemen.
+**Important**:
+Basic for optimal functioning of a heating system is professional hydraulic balancing.
+The return flow temperature heating control only works in systems that are perfectly hydraulically balanced.
 
 # Hydraulic Balancing
 
