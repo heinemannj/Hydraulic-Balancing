@@ -1,37 +1,37 @@
-# Außentemperatur bzw. witterungsgeführte Rücklauftemperaturregelung
+# Outside temperature and weather-compensated return flow temperature heating control
 
-Bei einer Vorlauftemperaturreglung gibt es nur eine geringe Rückmeldung, was von den Heizflächen tatsächlich verbraucht wird.
+By a supply flow temperature heating control, there is only little feedback about what is actually being consumed by the heating surfaces.
 
 ![image](https://github.com/heinemannj/Hydraulic-Balancing/assets/3251642/cafa5bb7-554e-4a2e-a965-252028d84502)
 
-Bei einer Rücklauftemperaturregelung kommt die Rückmeldung von den Heizflächen.
+With return flow temperature heating control, the feedback comes from the heating surfaces.
 
-- Das Heizungswasser kommt kälter zurück, wenn mehr verbraucht wird und die Regelung regelt entsprechend nach.
-- Genauso ist es umgekehrt.
-- Bei diesem Regelverfahren wird der Rücklauf zur Führungsgröße.
-- Die kontinuierliche Kontrolle der Rücklauftemperatur ermöglicht Rückschlüsse über den Wärmebedarf der Heizungsanlage bzw. des Hauses.
+- The heating water comes back colder if more energy is consumed and the heating control adjusts accordingly.
+- The heating water comes back warmer when less energy is consumed.
+- With this control method, the return flow becomes the reference variable.
+- Continuous monitoring of the return flow temperature enables conclusions to be drawn about the heat requirements of the heating system or the house.
 
 ![image](https://github.com/heinemannj/Hydraulic-Balancing/assets/3251642/e8765d77-561e-47ea-854f-a3b7b4308eae)
 
 ![image](https://github.com/heinemannj/Hydraulic-Balancing/assets/3251642/938bd45e-c12c-4ef2-91ac-22d82a385685)
 
-## Rücklaufsolltemperatur / Rücklaufheizkurve
+## Return flow target temperature / return flow heating curve
 
-Die Heizung (Wärmeproduzent) misst die Außentemperatur über einen Fühler und berechnet daraus über die Vorlaufheizkurve einen Vorlaufsolltemperaturwert pro Gruppe.
-In Abhängigkeit zum Vorlaufsolltemperaturwert wird die Rücklaufsolltemperatur durch Berechnung der Rücklaufheizkurve ermittelt.
+The heating (heat producer) measures the outside temperature via a sensor and uses the supply flow heating curve to calculate a target supply flow temperature for each heating group.
+Depending on this target supply flow temperature, the target return flow temperature is determined by calculating the return flow heating curve.
 
-- Abhängig von der Witterungstemperatur wird mittels einer Vorlaufheizkurve eine Vorlaufsolltemperatur für die jeweilige Gruppe (Heizkreis) errechnet.
-  Die errechnete Vorlaufsolltemperatur kann mit einem einstellbaren Minimal- und Maximalwert begrenzt werden.
-- Die Rücklaufheizkurve ist eine um die Spreizung reduzierte Vorlaufheizkurve,
-  deshalb der Hydraulische Abgleich bzw. Thermische Abgleich bis zum Abwinken.
-  Aufgrund unterschiedlicher Leitungslängen und Durchflußstärken, reagieren Heizkreise unterschiedlich.
-- Berechnung der Spreizung und der resultierenden Rücklaufsolltemperatur für jede Gruppe (Heizkreis).
+- Depending on the outside temperature, a target supply flow temperature is calculated for the respective heating group (heating circuit) by using a supply flow heating curve.
+  The calculated target supply flow temperature can be limited with an adjustable minimum and maximum value.
+- The return flow heating curve is a supply flow heating curve reduced by the spread.
+  Due to different pipe lengths and flow rates, heating circuits react differently.
+  Therefore a hydraulic and/or thermal balancing is mandatory and must be carried out before, otherwise trustable spread calculation will fail.
+- Calculation of the spread and the resulting target return flow temperature for each heating group (heating circuit).
 
 ![image](https://github.com/heinemannj/Hydraulic-Balancing/assets/3251642/3e1ec560-4650-4f41-bf6f-5d031d97b5c0)
 
 ![image](https://github.com/heinemannj/Hydraulic-Balancing/assets/3251642/c9090cd1-e96f-426e-b914-c783701e2f3b)
 
-## Rücklauftemperaturregelung
+## Return flow temperature heating control
 
 Wenn die Rücklauftemperatur sich ihrem Sollwert nähert kann man davon ausgehen, dass die Räume warm sind und in jeden Raum die optimale Rücklauftemperatur zum Erreichen und Halten der gewünschten Raumtemperatur erreicht hat.
 
@@ -46,7 +46,7 @@ Wenn die Rücklauftemperatur sich ihrem Sollwert nähert kann man davon ausgehen
 - Wenn der Einschaltpunkt der Rücklauftemperatur erreicht wird, kann der Brenner starten.
 - Bei einstufigen Brennern verlängert es die Laufzeiten und verhindert häufige Brennerstarts (Takten).
 
-## Gemischte Regelung
+## Combined heating control
 
 Die gemischte Regelung verwendet zusätzlich zu den Rücklaufsensoren einen Raumtemperatursensor.
 In der gemischten Regelung wird die Heizung (Wärmeproduzent) erst abgestellt, wenn die gewünschte Raumtemperatur tatsächlich erreicht ist. 
