@@ -55,32 +55,31 @@ If the return flow temperature increases slowly, a lot of heat is being absorbed
 - The valves are open.
 - There is less external heat.
 
-If the return flow temperature rises quickly, the heat requirement of the heating system is lower.
+If the return flow temperature rises quickly, the heat demand of the heating system is lower.
 - Some valves are closed here because external heat is present.
 
 If the return flow temperature falls quickly, the heating system requires a lot of heat.
 - The valves are open.
 
-Generell unterscheidet man zwei Fälle:
-1. Allgemein zu hohe/niedrige Temperatur
-2. Sich zu langsam/schnell verändernde Temperaturen
+In general, a distinction can be made between the following two cases:
 
-Der erste Fall lässt sich über die Solltemperatur des Raumes und ggf. eine Veränderung des Offsets der Heizkurve erreichen.
-Zu langsame/schnelle Anpassung an die Außentemperatur lässt sich durch eine Veränderung der Neigung der Heizkurve erreichen.
+1. Generally too high/low temperature
+   Can be corrected via the target temperature of the room and, if necessary, changing the offset of the heating curve.
+2. Temperatures changing too slowly/quickly
+   Too slow/quick adaptation to the outside temperature can be corrected by changing the slope of the heating curve.
 
-Eine Energieeinsparung wird erreicht durch die
-- Verringerung der Taktung
-- Absenkung des Temperaturniveaus
-- Nutzung interner und externe Wärmegewinne
+A return flow temperature heating control has significant energy saving potential because it dynamically adapts to the actual energy consumption.
 
-Da dieses Regelungsprinzip in der Regel unbekannt ist bzw. nicht verstanden wird, wird es selten eingesetzt.
-Hierbei ist das Verhalten der Heizflächen, die Wasservolumenströme und das richtige Einregulieren anders.
-Eine Rücklauftemperaturregelung hat ein erhebliches Energieeinsparpotential, da sie sich dynamisch dem tatsächlichen Verbrauch anpasst.
-Dieses Prinzip funktioniert nur, wenn ein Hydraulischer Abgleich, und später ein Thermischer Abgleich, durchgeführt wurde.
+Energy savings are achieved through the
+- Reduction of heating cycles (on/off of the heating (heat producer)
+- Lowering the supply flow temperature level
+- Use of internal and external heat gains
+
+Since this control principle is generally unknown or not understood, it is rarely used.
+The behavior of the heating surfaces, the water volume flows and the correct regulation are different.
 
 **Important**:
-Basic for optimal functioning of a heating system is professional hydraulic balancing.
-The return flow temperature heating control only works in systems that are perfectly hydraulically balanced.
+Return flow temperature heating control principle only works if a hydraulic calibration and later a thermal calibration have been carried out.
 
 # Hydraulic Balancing
 
