@@ -111,13 +111,13 @@ However, this only very rarely reflects reality.
 ## Dynamic Hydraulic Balancing
 
 A **dynamic hydraulic balancing** dynamically adapts the hydraulic balancing for each operating situation.
-By using **infinitely adjustable actuators/valves**, the flow rates are dynamically adjusted for every operating situation.
+By using **infinitely adjustable actuators/valves**, the flow rates are dynamically **adjusted for every operating situation**.
 
 If the operating situation allows it, actuators can also be opened beyond the value specified in this static adjustment.
 In most operating situations (full load is very rare!), rooms can be heated up many times faster, pump outputs can be dimensioned lower and the flow temperature can be significantly reduced.
 
-# Requirements for starting the hydraulic balancing
-## Same room temperature in all rooms followed by a cooling phase
+## Requirements for starting the hydraulic balancing
+### Same room temperature in all rooms followed by a cooling phase
 
 Wichtigste Voraussetzung für ein erfolgreiches Resultat ist ein geeigneter Initialzustand der Fußbodenheizung.
 
@@ -135,7 +135,7 @@ Erfahrungsgemäß funktioniert die nachfolgende Vorgehensweise sehr gut:
 Es ist unumgänglich, diese Schritte vor dem Start des hydraulischen Abgleichs durchzuführen.
 Das Ergebnis wird sonst nicht verwertbar sein.
 
-## Open the flow rate limiter 100% (except for very short heating loops)
+### Open the flow rate limiter 100% (except for very short heating loops)
 
 Alle Durchflussmengenbegrenzer müssen vor dem Start des hydraulischen Abgleichs maximal geöffnet sein.
 
@@ -145,29 +145,29 @@ Die Durchflussmengenbegrenzer bei Räumen mit bekannt sehr kurzen Heizschleifen 
 
 **Die Ventilöffnung sollte bei keinem Stellantrieb auf weniger als 25% begrenzt werden müssen.**
 
-## Outside temperatures <10°C
+### Outside temperatures <10°C
 
 Aufgrund mehrerer Effekte, lässt sich beim Rücklauftemperatur-Verfahren der hydraulische Abgleich einfacher und genauer durchführen, je kälter die Außentemperaturen sind.
 Sofern Sie bei Plusgraden kein ausreichendes Ergebnis erhalten, wiederholen Sie den Abgleich also am Besten nochmal bei kälteren Außentemperaturen.
 
 Über einer Außentemperatur von 10°C ist ein hydraulischer Abgleich mit dem Rücklauftemperatur-Verfahren nicht möglich.
 
-## The underfloor heating pump must be switched on permanently
+### The underfloor heating pump must be switched on permanently
 
 Stellen Sie sicher, dass die Fußbodenheizungspumpe während des hydraulischen Abgleichs dauerhaft läuft.
 Stellen Sie in der integrierten Steuerung Ihres Wärmeerzeugers die Pumpe bitte übergangsweise auf Dauerbetrieb.
 
-## Sufficient flow temperature (deactivate night setback!)
+### Sufficient flow temperature (deactivate night setback!)
 
 Für die Dauer des hydraulischen Abgleichs muss eine ausreichende Vorlauftemperatur sichergestellt sein.
 Der Wärmeerzeuger darf sich beispielsweise nicht in der Nachtabsenkung befinden.
 
-## Minimize/exclude further influences
+### Minimize/exclude further influences
 
 Während des hydraulischen Abgleichs dürfen keine Fenster oder Türen geöffnet sein, und es dürfen keine zusätzlichen Wärmequellen (z.B. Kachelöfen) die Messungen verfälschen.
 Ebenso sollten externe Effekte wie z.B. Sonneneinstrahlung durch Testdurchläufe nach Sonnenuntergang ausgeschlossen werden.
 
-# Implementation and work steps
+## Implementation and work steps
 
 Der hydraulische Abgleich über das Rücklauftemperatur-Verfahren erfolgt in folgenden aufeinander aufbauenden Schritten.
 
@@ -175,7 +175,7 @@ Der hydraulische Abgleich über das Rücklauftemperatur-Verfahren erfolgt in fol
 2) Dynamischer hydraulischer Maximalabgleich (DHMA) mit Maximaldurchfluss-Anpassung
 3) Regelbetrieb mit Deep-Learning
 
-## Step 1: Automatic static hydraulic balancing
+### Step 1: Automatic static hydraulic balancing
 
 Beim automatischen statischen hydraulischen Abgleich werden alle Heizkreisverteiler und alle Heizkreise des Gebäudes gleichzeitig einbezogen und untereinander valide mittels des Rücklauftemperatur-Verfahrens abgeglichen.
 Die Durchflussmengen werden über stufenlos einstellbare Stellantriebe so lange begrenzt, bis alle Heizschleifen die gleiche Rücklauftemperatur aufweisen.
@@ -208,7 +208,7 @@ Während eines Durchlaufs selbst werden die Maximalöffnungen nicht angepasst.
 Das Plugin wertet jeden Durchlauf am Ende aus und passt dann einmalig die einzelnen Maximalöffnungen an.
 Es sind also IMMER mehrere Durchläufe notwendig, bis sich die Rücklauftemperaturen im gewünschten Bereich von 2K befinden.
 
-## Step 2: Dynamic hydraulic maximum adjustment with maximum flow adjustment
+### Step 2: Dynamic hydraulic maximum adjustment with maximum flow adjustment
 
 Die im zuvor beschriebenen automatischen statischen hydraulischen Abgleich ermittelten maximalen Öffnungswerte für jede Heizschleife sind ausschließlich 
 für die Betriebssituation Vollast (“Alle Räume sollen aktuell mit maximaler und gleicher Menge an Wärmeenergie versorgt werden“) optimal.
@@ -226,7 +226,7 @@ Smart-Heat OS stellt dabei gleichzeitig immer die Versorgung aller anderen Räum
 - Es ist weniger Leistung der Heizkreispumpe notwendig, da die Pumpe nicht gegen unnötig limitierte Ventile andrücken muss
   (Hinweis: Eine Differenzdruck-geregelte Pumpe adaptiert dies automatisch).
 
-## Step 3: Regular operation with deep learning
+### Step 3: Regular operation with deep learning
 
 Das beschriebene Plugin “hydraulischer Abgleich” übergibt in der Folge laufend die maximal erlaubte Öffnung
 jeder Heizschleife an den KI-Regelalgorithmus für Fußbodenheizungen.
