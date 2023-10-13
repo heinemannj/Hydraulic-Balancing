@@ -2,7 +2,7 @@
 
 By a supply flow temperature heating control, there is only little feedback about what is actually being consumed by the heating surfaces.
 
-![image](https://github.com/heinemannj/Hydraulic-Balancing/assets/3251642/cafa5bb7-554e-4a2e-a965-252028d84502)
+![heating-system_1](./assets/heating system_1.png)
 
 With return flow temperature heating control, the feedback comes from the heating surfaces.
 
@@ -11,9 +11,9 @@ With return flow temperature heating control, the feedback comes from the heatin
 - With this control method, the return flow becomes the reference variable.
 - Continuous monitoring of the return flow temperature enables conclusions to be drawn about the heat requirements of the heating system or the house.
 
-![image](https://github.com/heinemannj/Hydraulic-Balancing/assets/3251642/e8765d77-561e-47ea-854f-a3b7b4308eae)
+![curve_1](./assets/curve_1.png)
 
-![image](https://github.com/heinemannj/Hydraulic-Balancing/assets/3251642/938bd45e-c12c-4ef2-91ac-22d82a385685)
+![curve_2](./assets/curve_2.png)
 
 ## Return flow target temperature, Return flow heating curve
 
@@ -27,9 +27,9 @@ Depending on this target supply flow temperature, the target return flow tempera
   Therefore a hydraulic and/or thermal balancing is mandatory and must be carried out before, otherwise trustable spread calculation will fail.
 - Calculation of the spread and the resulting target return flow temperature for each heating group (heating circuit).
 
-![image](https://github.com/heinemannj/Hydraulic-Balancing/assets/3251642/3e1ec560-4650-4f41-bf6f-5d031d97b5c0)
+![calculation-sheet_1](./assets/calculation-sheet_1.png)
 
-![image](https://github.com/heinemannj/Hydraulic-Balancing/assets/3251642/c9090cd1-e96f-426e-b914-c783701e2f3b)
+![calculation-sheet_2](./assets/calculation-sheet_2.png)
 
 ## Return flow temperature heating control
 
