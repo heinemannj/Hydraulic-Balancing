@@ -237,6 +237,13 @@ Entsprechend dem Ergebnis wird dann die tatsächliche Öffnung jedes Stellantrie
 
 # Heating controller
 
+An ESP32 8 channels motor controller (shield) | Floor heating controller for proportional actuator.
+Version v57 rev 1.48
+
+https://github.com/nliaudat/esp32_8ch_motor_shield/tree/main#new-version-v57-rev-148-
+
+![controller_1](https://github.com/nliaudat/esp32_8ch_motor_shield/blob/main/imgs/v53.PNG)
+
 ![case_1](./assets/case_1.jpg)
 ![case_2](./assets/case_2.jpg)
 ![case_3](./assets/case_3.jpg)
