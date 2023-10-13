@@ -237,7 +237,12 @@ Entsprechend dem Ergebnis wird dann die tatsächliche Öffnung jedes Stellantrie
 
 # Heating controller
 
-![case_1](./assets/case_1.png)
+![case_1](./assets/case_1.jpg)
+![case_2](./assets/case_2.jpg)
+![case_3](./assets/case_3.jpg)
+![case_4](./assets/case_4.jpg)
+![case_5](./assets/case_5.jpg)
+![case_6](./assets/case_6.jpg)
 
 # References
 
