@@ -238,8 +238,8 @@ The actual opening of each actuator is then adjusted according to the result.
 # Heating controller
 
 An ESP32 8 channels motor controller (shield) | Floor heating controller for proportional actuator.
-Version v57 rev 1.48
 
+Can drive up to 8 Homematic valve actuators [HmIP-VDMOT] (Version v57 rev 1.48).
 https://github.com/nliaudat/esp32_8ch_motor_shield/tree/main#new-version-v57-rev-148-
 
 ![controller_1](https://github.com/nliaudat/esp32_8ch_motor_shield/blob/main/imgs/v53.PNG)
@@ -247,13 +247,42 @@ https://github.com/nliaudat/esp32_8ch_motor_shield/tree/main#new-version-v57-rev
 ![case_1](./assets/case_1.jpg)
 ![case_2](./assets/case_2.jpg)
 ![case_3](./assets/case_3.jpg)
-![case_4](./assets/case_4.jpg)
-![case_5](./assets/case_5.jpg)
-![case_6](./assets/case_6.jpg)
 
 ## Firmware
 
 https://github.com/nliaudat/floor-heating-controller
+
+## Floor heating temperatur sensors
+
+1-Wire Bus with DS18B20 temperatur sensors to measure the
+
+- supply flow temperature
+- return flow temperature
+
+for each heating circuit.
+
+Usage of 1-wire temperature sensors (DS18B20):
+https://esphome.io/components/sensor/dallas.html
+
+_"... The 1-Wire bus ... should have an external pullup resistor of about 4.7KΩ. ..."<br>
+"... For this, connect a resistor of about 4.7KΩ between 3.3V and the data pin. ..."<br>
+"... Values ± 1KΩ will, in most cases, work fine as well, if you don’t have massively long wires. ..."_
+
+|1-Wire Bus|Board|DS18B20|Resistor|
+|---|------|-------|--|
+|Power|VCC (3.3. V)|red|~4.7KΩ between Power and Data|
+|Ground|GND|black|-|
+|Data|IO (e.g. IO22)|yellow|~4.7KΩ between Power and Data|
+
+See:
+https://github.com/nliaudat/esp32_8ch_motor_shield/blob/main/extension.md
+
+Note:
+With proper and short cabling more than 16 DS18B20 on the same 1-wire bus seems to be possible.
+
+![case_4](./assets/case_4.jpg)
+![case_5](./assets/case_5.jpg)
+![case_6](./assets/case_6.jpg)
 
 # References
 
