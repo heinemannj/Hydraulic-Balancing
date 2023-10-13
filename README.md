@@ -251,6 +251,10 @@ https://github.com/nliaudat/esp32_8ch_motor_shield/tree/main#new-version-v57-rev
 ![case_5](./assets/case_5.jpg)
 ![case_6](./assets/case_6.jpg)
 
+## Firmware
+
+https://github.com/nliaudat/floor-heating-controller
+
 # References
 
 - https://github.com/nliaudat/esp32_8ch_motor_shield
