@@ -2,7 +2,7 @@
 
 By a supply flow temperature heating control, there is only little feedback about what is actually being consumed by the heating surfaces.
 
-![heating-system_1](./assets/heating system_1.png)
+![heating-system_1](./assets/heating-system_1.png)
 
 With return flow temperature heating control, the feedback comes from the heating surfaces.
 
