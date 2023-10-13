@@ -177,63 +177,63 @@ The hydraulic balancing using the return flow temperature process takes place in
 
 ### Step 1: Automatic static hydraulic balancing
 
-Beim automatischen statischen hydraulischen Abgleich werden alle Heizkreisverteiler und alle Heizkreise des Gebäudes gleichzeitig einbezogen und untereinander valide mittels des Rücklauftemperatur-Verfahrens abgeglichen.
-Die Durchflussmengen werden über stufenlos einstellbare Stellantriebe so lange begrenzt, bis alle Heizschleifen die gleiche Rücklauftemperatur aufweisen.
+With automatic static hydraulic balancing, all heating circuit distributors and all heating circuits in the building are included simultaneously and validly compared with each other using the return temperature process.
+The flow rates are limited using continuously adjustable actuators/valves until all heating loops have the same return temperature.
 
-Hierbei werden in einem Testdurchlauf (z.B. 30 min) zeitgleich die Rücklauftemperaturen in allen Heizkreisen gemessen und in einem Diagramm dargestellt.
-Nach jedem Testdurchlauf werden die Durchflussmengen der wärmsten Rückläufe begrenzt (durch Anpassung der Ventilöffnungen der stufenlos einstellbaren Stellantriebe) – so lange, bis alle Heizschleifen die gleiche Mitteltemperatur aufweisen.
+The return temperatures in all heating circuits are measured at the same time in a test run (e.g. 30 minutes) and displayed in a diagram.
+After each test run, the flow rates of the warmest returns are limited (by adjusting the valve openings of the continuously adjustable actuators) - until all heating loops have the same average temperature.
 
-1) Initialaktion
-   Öffnung aller Ventile für beispielsweise 30 min um einige physikalisch bedingte Verzögerungen abzudecken.
-   - Es dauert z.B. einige Minuten, bis das Controme Gateway das Öffnungssignal an die Stellantriebe sendet,
-   - die Stellantriebe benötigen wiederum ein paar Minuten, um tatsächlich zu öffnen.
-   - Des Weiteren sollten alle Heizschleifen zunächst für einige Minuten Durchfluss haben, bevor die Rücklauftemperaturen bewertet werden.
-   - Darstellung aller Rücklauftemperaturen in einem Diagramm.
-2) Start der ersten Testsequenz.
-3) Nach Abschluss der beispielsweise 30 min Testsequenz werden die Ventilöffnungen der stufenlos einstellbaren Stellantriebe einmalig angepasst.
-   - Nach jedem Durchlauf wird für jeden Sensor der Mittelwert berechnet.
-   - Die Differenz aller Mittelwerte ergibt das Ergebnis des Durchlaufs.
-   - NACH jedem Durchlauf werden die Ventilöffnungen der wärmsten Rückläufe verringert.
-   - Die Maximalöffnungen werden für jedes Ventil auf der Geräteseite der Fußbodenheizungssteuerung(en)-PRO dargestellt.
-   - Das AHA-Plugin passt also die dargestellten Maximalöffnungs-Werte (die Slider) am Ende jedes AHA-Durchlaufs automatisch an.
-4) Start der nächsten Testsequenz mit den neuen verbesserten Ventilöffnungen (Maximalöffnungs-Werte).
-5) Dieser Prozess wird so lange wiederholt, bis alle Heizschleifen eine Mitteltemperatur aufweisen, die um weniger als 2K voneinander abweicht.
+1) Initial action
+   Opening all valves for, for example, 30 minutes to cover some physically caused delays.
+   - For example, it takes a few minutes until the Controme Gateway sends the opening signal to the actuators,
+   - the actuators again need a few minutes to actually open.
+   - Furthermore, all heating loops should initially have flow for a few minutes before the return temperatures are evaluated.
+   - Display of all return temperatures in one diagram.
+2) Start the first test sequence.
+3) After completion of the 30 minute test sequence, for example, the valve openings of the continuously adjustable actuators are adjusted once.
+   - After each run, the average value is calculated for each sensor.
+   - The difference of all mean values ​​​​gives the result of the run.
+   - AFTER each run, the valve openings of the warmest returns are reduced.
+   - The maximum openings are shown for each valve on the device page of the underfloor heating control(s)-PRO.
+   - The AHA plugin automatically adjusts the displayed maximum opening values ​​(the sliders) at the end of each AHA run.
+4) Start the next test sequence with the new improved valve openings (maximum opening values).
+5) This process is repeated until all heating loops have an average temperature that differs from each other by less than 2K.
 
-**Wichtig**:
-Die Ventilöffnung sollte bei keinem Stellantrieb auf weniger als 25% begrenzt werden müssen.
-Diese Durchflussmengenbegrenzer müssen etwas zugedreht werden. 
+**Important**:
+The valve opening should not have to be limited to less than 25% for any actuator.
+These flow rate limiters must be turned off slightly.
 
-**Bitte beachten**:
-Während eines Durchlaufs selbst werden die Maximalöffnungen nicht angepasst.
-Das Plugin wertet jeden Durchlauf am Ende aus und passt dann einmalig die einzelnen Maximalöffnungen an.
-Es sind also IMMER mehrere Durchläufe notwendig, bis sich die Rücklauftemperaturen im gewünschten Bereich von 2K befinden.
+**Please note**:
+The maximum openings are not adjusted during a run itself.
+The plugin evaluates each run at the end and then adjusts the individual maximum openings once.
+So several runs are ALWAYS necessary until the return temperatures are in the desired range of 2K.
 
 ### Step 2: Dynamic hydraulic maximum adjustment with maximum flow adjustment
 
-Die im zuvor beschriebenen automatischen statischen hydraulischen Abgleich ermittelten maximalen Öffnungswerte für jede Heizschleife sind ausschließlich 
-für die Betriebssituation Vollast (“Alle Räume sollen aktuell mit maximaler und gleicher Menge an Wärmeenergie versorgt werden“) optimal.
-Diese Betriebssituation ist jedoch sehr selten.
+The maximum opening values ​​for each heating loop determined in the previously described automatic static hydraulic balancing are exclusive
+optimal for the full load operating situation (“All rooms should currently be supplied with the maximum and equal amount of heat energy”).
+However, this operating situation is very rare.
 
-Der dynamische Abgleich Maximalabgleich (DHMA) berechnet deshalb aufbauend auf den im automatischen statischen hydraulischen Abgleich ermittelten Werten,
-individuell zu jeder Betriebssituation die maximal mögliche Ventilöffnung für jede Heizschleife.
+The dynamic adjustment maximum adjustment therefore calculates, based on the values ​​determined in the automatic static hydraulic adjustment,
+The maximum possible valve opening for each heating loop is individually tailored to each operating situation.
 
-Der innovative DHMA-Regelalgorithmus berücksichtigt dabei alle aktuellen Betriebsinformationen und entscheidet intelligent für jede einzelne Heizschleife,
-ob ein Ventil bei Bedarf über den im automatischen hydraulischen Abgleich (AHA) ermittelten Maximalwert geöffnet werden darf.
-Smart-Heat OS stellt dabei gleichzeitig immer die Versorgung aller anderen Räume sicher.
+The control algorithm takes into account all current operating information and makes intelligent decisions for each individual heating loop.
+Whether a valve can be opened, if necessary, beyond the maximum value determined in the automatic hydraulic balancing (AHA).
+Smart-Heat OS always ensures supply to all other rooms at the same time.
 
-- Dadurch können Aufheizzeiten stark verkürzt werden.
-- Es wird bei gleicher Heizleistung eine geringere Vorlauftemperatur benötigt.
-- Es ist weniger Leistung der Heizkreispumpe notwendig, da die Pumpe nicht gegen unnötig limitierte Ventile andrücken muss
-  (Hinweis: Eine Differenzdruck-geregelte Pumpe adaptiert dies automatisch).
+- This allows heating times to be greatly reduced.
+- A lower flow temperature is required for the same heating output.
+- Less power from the heating circuit pump is required because the pump does not have to press against unnecessarily limited valves
+  (Note: A differential pressure-controlled pump adapts this automatically).
 
 ### Step 3: Regular operation with deep learning
 
-Das beschriebene Plugin “hydraulischer Abgleich” übergibt in der Folge laufend die maximal erlaubte Öffnung
-jeder Heizschleife an den KI-Regelalgorithmus für Fußbodenheizungen.
+The “hydraulic balancing” plugin subsequently continuously transfers the maximum permitted opening
+each heating loop to the AI ​​control algorithm for underfloor heating.
 
-Dieser analysiert mit Deep-Learning Methoden die Verläufe der Raum- und Rücklauftemperaturen und errechnet
-daraus unter Berücksichtigung von Wettervorhersage-Daten zu jedem Zeitpunkt die optimale Fußbodentemperatur.
-Entsprechend dem Ergebnis wird dann die tatsächliche Öffnung jedes Stellantriebs eingestellt.
+This uses deep learning methods to analyze and calculate the curves of the room and return temperatures
+This results in the optimal floor temperature at any time, taking weather forecast data into account.
+The actual opening of each actuator is then adjusted according to the result.
 
 # Heating controller
 
