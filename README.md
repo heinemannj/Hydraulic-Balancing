@@ -116,64 +116,64 @@ By using **infinitely adjustable actuators/valves**, the flow rates are dynamica
 If the operating situation allows it, actuators can also be opened beyond the value specified in this static adjustment.
 In most operating situations (full load is very rare!), rooms can be heated up many times faster, pump outputs can be dimensioned lower and the flow temperature can be significantly reduced.
 
-## Requirements for starting the hydraulic balancing
+## Prerequisites for starting the hydraulic balancing
 ### Same room temperature in all rooms followed by a cooling phase
 
-Wichtigste Voraussetzung für ein erfolgreiches Resultat ist ein geeigneter Initialzustand der Fußbodenheizung.
+The most important prerequisite are suitable initial conditions of the underfloor heating.
 
-Die Fußbodenheizung muss beim Start des hydraulischen Abgleichs in allen Räumen auf einem möglichst gleichen Temperaturniveau sein.
-Geringe Unterschiede können während des hydraulischen Abgleichs ausgeglichen werden.
-Jedoch funktioniert es NICHT, seit Tagen/Wochen unbeheizte Räume zusammen mit ständig beheizten Räumen abzugleichen.
+When the hydraulic balancing starts, the underfloor heating must be at the same temperature level as possible in all rooms.
+Small differences can be compensated for during hydraulic balancing.
+However, it does NOT work to compare rooms that have not been heated for days/weeks with rooms that have been constantly heated.
 
-Erfahrungsgemäß funktioniert die nachfolgende Vorgehensweise sehr gut:
+Experience has shown that the following procedure works very well:
 
-- Heizen Sie alle Räume im Haus auf die gleiche Temperatur (z.B. 20°C).
-  Diese Temperatur muss für mindestens 24 Stunden gleichmäßig gehalten werden.
-- Schalten Sie danach alle Räume für 24 Stunden aus.
-  Alternativ (z.B. bei sehr kalten Außentemperaturen) so lange ausschalten, bis jeder Raum um 2°C abgekühlt ist.
+- Heat all rooms in the house to the same temperature (e.g. 20°C).
+  This temperature must be maintained consistently for at least 24 hours.
+- Then turn off all rooms for 24 hours.
+  Alternatively (e.g. if the outside temperature is very cold), switch it off until every room has cooled down by 2°C.
 
-Es ist unumgänglich, diese Schritte vor dem Start des hydraulischen Abgleichs durchzuführen.
-Das Ergebnis wird sonst nicht verwertbar sein.
+It is essential to carry out these steps before starting the hydraulic balancing.
+Otherwise the result will not be usable.
 
 ### Open the flow rate limiter 100% (except for very short heating loops)
 
-Alle Durchflussmengenbegrenzer müssen vor dem Start des hydraulischen Abgleichs maximal geöffnet sein.
+All flow rate limiters must be opened to the maximum before starting the hydraulic balancing.
 
 ![image](https://github.com/heinemannj/Hydraulic-Balancing/assets/3251642/2fe91ee9-b41a-4412-8b91-ab9c3f1fd77e)
 
-Die Durchflussmengenbegrenzer bei Räumen mit bekannt sehr kurzen Heizschleifen können etwas zugedreht werden.
+The flow rate limiters in rooms with known very short heating loops can be turned off slightly.
 
-**Die Ventilöffnung sollte bei keinem Stellantrieb auf weniger als 25% begrenzt werden müssen.**
+**The valve opening should not need to be limited to less than 25% for any actuator.**
 
 ### Outside temperatures <10°C
 
-Aufgrund mehrerer Effekte, lässt sich beim Rücklauftemperatur-Verfahren der hydraulische Abgleich einfacher und genauer durchführen, je kälter die Außentemperaturen sind.
-Sofern Sie bei Plusgraden kein ausreichendes Ergebnis erhalten, wiederholen Sie den Abgleich also am Besten nochmal bei kälteren Außentemperaturen.
+Due to several effects, the colder the outside temperatures, the easier and more precise the hydraulic balancing can be carried out using the return flow temperature method.
+If you do not get a sufficient result when the temperature is above zero, it is best to repeat the calibration again when the outside temperatures are colder.
 
-Über einer Außentemperatur von 10°C ist ein hydraulischer Abgleich mit dem Rücklauftemperatur-Verfahren nicht möglich.
+Above an outside temperature of 10°C, hydraulic balancing using the return flow temperature method is not possible.
 
 ### The underfloor heating pump must be switched on permanently
 
-Stellen Sie sicher, dass die Fußbodenheizungspumpe während des hydraulischen Abgleichs dauerhaft läuft.
-Stellen Sie in der integrierten Steuerung Ihres Wärmeerzeugers die Pumpe bitte übergangsweise auf Dauerbetrieb.
+Make sure that the underfloor heating pump runs continuously during the hydraulic balancing.
+Please temporarily set the pump to continuous operation in the integrated control of your heat generator.
 
 ### Sufficient flow temperature (deactivate night setback!)
 
-Für die Dauer des hydraulischen Abgleichs muss eine ausreichende Vorlauftemperatur sichergestellt sein.
-Der Wärmeerzeuger darf sich beispielsweise nicht in der Nachtabsenkung befinden.
+A sufficient flow temperature must be ensured for the duration of the hydraulic balancing.
+For example, the heat generator must not be in night setback mode.
 
 ### Minimize/exclude further influences
 
-Während des hydraulischen Abgleichs dürfen keine Fenster oder Türen geöffnet sein, und es dürfen keine zusätzlichen Wärmequellen (z.B. Kachelöfen) die Messungen verfälschen.
-Ebenso sollten externe Effekte wie z.B. Sonneneinstrahlung durch Testdurchläufe nach Sonnenuntergang ausgeschlossen werden.
+During the hydraulic balancing, no windows or doors may be open and no additional heat sources (e.g. tiled stoves) may falsify the measurements.
+External effects such as solar radiation should also be excluded through test runs after sunset.
 
 ## Implementation and work steps
 
-Der hydraulische Abgleich über das Rücklauftemperatur-Verfahren erfolgt in folgenden aufeinander aufbauenden Schritten.
+The hydraulic balancing using the return flow temperature process takes place in the following successive steps.
 
-1) Automatischer statischer hydraulischer Abgleich
-2) Dynamischer hydraulischer Maximalabgleich (DHMA) mit Maximaldurchfluss-Anpassung
-3) Regelbetrieb mit Deep-Learning
+1) Automatic static hydraulic balancing
+2) Dynamic hydraulic maximum adjustment with maximum flow adjustment
+3) Regular operation with deep learning
 
 ### Step 1: Automatic static hydraulic balancing
 
