@@ -139,7 +139,7 @@ Otherwise the result will not be usable.
 
 All flow rate limiters must be opened to the maximum before starting the hydraulic balancing.
 
-![image](https://github.com/heinemannj/Hydraulic-Balancing/assets/3251642/2fe91ee9-b41a-4412-8b91-ab9c3f1fd77e)
+![flow-rate-limiters](./assets/flow-rate-limiters.png)
 
 The flow rate limiters in rooms with known very short heating loops can be turned off slightly.
 
