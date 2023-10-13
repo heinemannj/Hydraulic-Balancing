@@ -116,135 +116,178 @@ By using **infinitely adjustable actuators/valves**, the flow rates are dynamica
 If the operating situation allows it, actuators can also be opened beyond the value specified in this static adjustment.
 In most operating situations (full load is very rare!), rooms can be heated up many times faster, pump outputs can be dimensioned lower and the flow temperature can be significantly reduced.
 
-## Requirements for starting the hydraulic balancing
+## Prerequisites for starting the hydraulic balancing
 ### Same room temperature in all rooms followed by a cooling phase
 
-Wichtigste Voraussetzung für ein erfolgreiches Resultat ist ein geeigneter Initialzustand der Fußbodenheizung.
+The most important prerequisite are suitable initial conditions of the underfloor heating.
 
-Die Fußbodenheizung muss beim Start des hydraulischen Abgleichs in allen Räumen auf einem möglichst gleichen Temperaturniveau sein.
-Geringe Unterschiede können während des hydraulischen Abgleichs ausgeglichen werden.
-Jedoch funktioniert es NICHT, seit Tagen/Wochen unbeheizte Räume zusammen mit ständig beheizten Räumen abzugleichen.
+When the hydraulic balancing starts, the underfloor heating must be at the same temperature level as possible in all rooms.
+Small differences can be compensated for during hydraulic balancing.
+However, it does NOT work to compare rooms that have not been heated for days/weeks with rooms that have been constantly heated.
 
-Erfahrungsgemäß funktioniert die nachfolgende Vorgehensweise sehr gut:
+Experience has shown that the following procedure works very well:
 
-- Heizen Sie alle Räume im Haus auf die gleiche Temperatur (z.B. 20°C).
-  Diese Temperatur muss für mindestens 24 Stunden gleichmäßig gehalten werden.
-- Schalten Sie danach alle Räume für 24 Stunden aus.
-  Alternativ (z.B. bei sehr kalten Außentemperaturen) so lange ausschalten, bis jeder Raum um 2°C abgekühlt ist.
+- Heat all rooms in the house to the same temperature (e.g. 20°C).
+  This temperature must be maintained consistently for at least 24 hours.
+- Then turn off all rooms for 24 hours.
+  Alternatively (e.g. if the outside temperature is very cold), switch it off until every room has cooled down by 2°C.
 
-Es ist unumgänglich, diese Schritte vor dem Start des hydraulischen Abgleichs durchzuführen.
-Das Ergebnis wird sonst nicht verwertbar sein.
+It is essential to carry out these steps before starting the hydraulic balancing.
+Otherwise the result will not be usable.
 
 ### Open the flow rate limiter 100% (except for very short heating loops)
 
-Alle Durchflussmengenbegrenzer müssen vor dem Start des hydraulischen Abgleichs maximal geöffnet sein.
+All flow rate limiters must be opened to the maximum before starting the hydraulic balancing.
 
-![image](https://github.com/heinemannj/Hydraulic-Balancing/assets/3251642/2fe91ee9-b41a-4412-8b91-ab9c3f1fd77e)
+![flow-rate-limiters](./assets/flow-rate-limiters.png)
 
-Die Durchflussmengenbegrenzer bei Räumen mit bekannt sehr kurzen Heizschleifen können etwas zugedreht werden.
+The flow rate limiters in rooms with known very short heating loops can be turned off slightly.
 
-**Die Ventilöffnung sollte bei keinem Stellantrieb auf weniger als 25% begrenzt werden müssen.**
+**The valve opening should not need to be limited to less than 25% for any actuator.**
 
 ### Outside temperatures <10°C
 
-Aufgrund mehrerer Effekte, lässt sich beim Rücklauftemperatur-Verfahren der hydraulische Abgleich einfacher und genauer durchführen, je kälter die Außentemperaturen sind.
-Sofern Sie bei Plusgraden kein ausreichendes Ergebnis erhalten, wiederholen Sie den Abgleich also am Besten nochmal bei kälteren Außentemperaturen.
+Due to several effects, the colder the outside temperatures, the easier and more precise the hydraulic balancing can be carried out using the return flow temperature method.
+If you do not get a sufficient result when the temperature is above zero, it is best to repeat the calibration again when the outside temperatures are colder.
 
-Über einer Außentemperatur von 10°C ist ein hydraulischer Abgleich mit dem Rücklauftemperatur-Verfahren nicht möglich.
+Above an outside temperature of 10°C, hydraulic balancing using the return flow temperature method is not possible.
 
 ### The underfloor heating pump must be switched on permanently
 
-Stellen Sie sicher, dass die Fußbodenheizungspumpe während des hydraulischen Abgleichs dauerhaft läuft.
-Stellen Sie in der integrierten Steuerung Ihres Wärmeerzeugers die Pumpe bitte übergangsweise auf Dauerbetrieb.
+Make sure that the underfloor heating pump runs continuously during the hydraulic balancing.
+Please temporarily set the pump to continuous operation in the integrated control of your heat generator.
 
 ### Sufficient flow temperature (deactivate night setback!)
 
-Für die Dauer des hydraulischen Abgleichs muss eine ausreichende Vorlauftemperatur sichergestellt sein.
-Der Wärmeerzeuger darf sich beispielsweise nicht in der Nachtabsenkung befinden.
+A sufficient flow temperature must be ensured for the duration of the hydraulic balancing.
+For example, the heat generator must not be in night setback mode.
 
 ### Minimize/exclude further influences
 
-Während des hydraulischen Abgleichs dürfen keine Fenster oder Türen geöffnet sein, und es dürfen keine zusätzlichen Wärmequellen (z.B. Kachelöfen) die Messungen verfälschen.
-Ebenso sollten externe Effekte wie z.B. Sonneneinstrahlung durch Testdurchläufe nach Sonnenuntergang ausgeschlossen werden.
+During the hydraulic balancing, no windows or doors may be open and no additional heat sources (e.g. tiled stoves) may falsify the measurements.
+External effects such as solar radiation should also be excluded through test runs after sunset.
 
 ## Implementation and work steps
 
-Der hydraulische Abgleich über das Rücklauftemperatur-Verfahren erfolgt in folgenden aufeinander aufbauenden Schritten.
+The hydraulic balancing using the return flow temperature process takes place in the following successive steps.
 
-1) Automatischer statischer hydraulischer Abgleich
-2) Dynamischer hydraulischer Maximalabgleich (DHMA) mit Maximaldurchfluss-Anpassung
-3) Regelbetrieb mit Deep-Learning
+1) Automatic static hydraulic balancing
+2) Dynamic hydraulic maximum adjustment with maximum flow adjustment
+3) Regular operation with deep learning
 
 ### Step 1: Automatic static hydraulic balancing
 
-Beim automatischen statischen hydraulischen Abgleich werden alle Heizkreisverteiler und alle Heizkreise des Gebäudes gleichzeitig einbezogen und untereinander valide mittels des Rücklauftemperatur-Verfahrens abgeglichen.
-Die Durchflussmengen werden über stufenlos einstellbare Stellantriebe so lange begrenzt, bis alle Heizschleifen die gleiche Rücklauftemperatur aufweisen.
+With automatic static hydraulic balancing, all heating circuit distributors and all heating circuits in the building are included simultaneously and validly compared with each other using the return temperature process.
+The flow rates are limited using continuously adjustable actuators/valves until all heating loops have the same return temperature.
 
-Hierbei werden in einem Testdurchlauf (z.B. 30 min) zeitgleich die Rücklauftemperaturen in allen Heizkreisen gemessen und in einem Diagramm dargestellt.
-Nach jedem Testdurchlauf werden die Durchflussmengen der wärmsten Rückläufe begrenzt (durch Anpassung der Ventilöffnungen der stufenlos einstellbaren Stellantriebe) – so lange, bis alle Heizschleifen die gleiche Mitteltemperatur aufweisen.
+The return temperatures in all heating circuits are measured at the same time in a test run (e.g. 30 minutes) and displayed in a diagram.
+After each test run, the flow rates of the warmest returns are limited (by adjusting the valve openings of the continuously adjustable actuators) - until all heating loops have the same average temperature.
 
-1) Initialaktion
-   Öffnung aller Ventile für beispielsweise 30 min um einige physikalisch bedingte Verzögerungen abzudecken.
-   - Es dauert z.B. einige Minuten, bis das Controme Gateway das Öffnungssignal an die Stellantriebe sendet,
-   - die Stellantriebe benötigen wiederum ein paar Minuten, um tatsächlich zu öffnen.
-   - Des Weiteren sollten alle Heizschleifen zunächst für einige Minuten Durchfluss haben, bevor die Rücklauftemperaturen bewertet werden.
-   - Darstellung aller Rücklauftemperaturen in einem Diagramm.
-2) Start der ersten Testsequenz.
-3) Nach Abschluss der beispielsweise 30 min Testsequenz werden die Ventilöffnungen der stufenlos einstellbaren Stellantriebe einmalig angepasst.
-   - Nach jedem Durchlauf wird für jeden Sensor der Mittelwert berechnet.
-   - Die Differenz aller Mittelwerte ergibt das Ergebnis des Durchlaufs.
-   - NACH jedem Durchlauf werden die Ventilöffnungen der wärmsten Rückläufe verringert.
-   - Die Maximalöffnungen werden für jedes Ventil auf der Geräteseite der Fußbodenheizungssteuerung(en)-PRO dargestellt.
-   - Das AHA-Plugin passt also die dargestellten Maximalöffnungs-Werte (die Slider) am Ende jedes AHA-Durchlaufs automatisch an.
-4) Start der nächsten Testsequenz mit den neuen verbesserten Ventilöffnungen (Maximalöffnungs-Werte).
-5) Dieser Prozess wird so lange wiederholt, bis alle Heizschleifen eine Mitteltemperatur aufweisen, die um weniger als 2K voneinander abweicht.
+1) Initial action
+   Opening all valves for, for example, 30 minutes to cover some physically caused delays.
+   - For example, it takes a few minutes until the Controme Gateway sends the opening signal to the actuators,
+   - the actuators again need a few minutes to actually open.
+   - Furthermore, all heating loops should initially have flow for a few minutes before the return temperatures are evaluated.
+   - Display of all return temperatures in one diagram.
+2) Start the first test sequence.
+3) After completion of the 30 minute test sequence, for example, the valve openings of the continuously adjustable actuators are adjusted once.
+   - After each run, the average value is calculated for each sensor.
+   - The difference of all mean values ​​​​gives the result of the run.
+   - AFTER each run, the valve openings of the warmest returns are reduced.
+   - The maximum openings are shown for each valve on the device page of the underfloor heating control(s)-PRO.
+   - The AHA plugin automatically adjusts the displayed maximum opening values ​​(the sliders) at the end of each AHA run.
+4) Start the next test sequence with the new improved valve openings (maximum opening values).
+5) This process is repeated until all heating loops have an average temperature that differs from each other by less than 2K.
 
-**Wichtig**:
-Die Ventilöffnung sollte bei keinem Stellantrieb auf weniger als 25% begrenzt werden müssen.
-Diese Durchflussmengenbegrenzer müssen etwas zugedreht werden. 
+**Important**:
+The valve opening should not have to be limited to less than 25% for any actuator.
+These flow rate limiters must be turned off slightly.
 
-**Bitte beachten**:
-Während eines Durchlaufs selbst werden die Maximalöffnungen nicht angepasst.
-Das Plugin wertet jeden Durchlauf am Ende aus und passt dann einmalig die einzelnen Maximalöffnungen an.
-Es sind also IMMER mehrere Durchläufe notwendig, bis sich die Rücklauftemperaturen im gewünschten Bereich von 2K befinden.
+**Please note**:
+The maximum openings are not adjusted during a run itself.
+The plugin evaluates each run at the end and then adjusts the individual maximum openings once.
+So several runs are ALWAYS necessary until the return temperatures are in the desired range of 2K.
 
 ### Step 2: Dynamic hydraulic maximum adjustment with maximum flow adjustment
 
-Die im zuvor beschriebenen automatischen statischen hydraulischen Abgleich ermittelten maximalen Öffnungswerte für jede Heizschleife sind ausschließlich 
-für die Betriebssituation Vollast (“Alle Räume sollen aktuell mit maximaler und gleicher Menge an Wärmeenergie versorgt werden“) optimal.
-Diese Betriebssituation ist jedoch sehr selten.
+The maximum opening values ​​for each heating loop determined in the previously described automatic static hydraulic balancing are exclusive
+optimal for the full load operating situation (“All rooms should currently be supplied with the maximum and equal amount of heat energy”).
+However, this operating situation is very rare.
 
-Der dynamische Abgleich Maximalabgleich (DHMA) berechnet deshalb aufbauend auf den im automatischen statischen hydraulischen Abgleich ermittelten Werten,
-individuell zu jeder Betriebssituation die maximal mögliche Ventilöffnung für jede Heizschleife.
+The dynamic adjustment maximum adjustment therefore calculates, based on the values ​​determined in the automatic static hydraulic adjustment,
+The maximum possible valve opening for each heating loop is individually tailored to each operating situation.
 
-Der innovative DHMA-Regelalgorithmus berücksichtigt dabei alle aktuellen Betriebsinformationen und entscheidet intelligent für jede einzelne Heizschleife,
-ob ein Ventil bei Bedarf über den im automatischen hydraulischen Abgleich (AHA) ermittelten Maximalwert geöffnet werden darf.
-Smart-Heat OS stellt dabei gleichzeitig immer die Versorgung aller anderen Räume sicher.
+The control algorithm takes into account all current operating information and makes intelligent decisions for each individual heating loop.
+Whether a valve can be opened, if necessary, beyond the maximum value determined in the automatic hydraulic balancing (AHA).
+Smart-Heat OS always ensures supply to all other rooms at the same time.
 
-- Dadurch können Aufheizzeiten stark verkürzt werden.
-- Es wird bei gleicher Heizleistung eine geringere Vorlauftemperatur benötigt.
-- Es ist weniger Leistung der Heizkreispumpe notwendig, da die Pumpe nicht gegen unnötig limitierte Ventile andrücken muss
-  (Hinweis: Eine Differenzdruck-geregelte Pumpe adaptiert dies automatisch).
+- This allows heating times to be greatly reduced.
+- A lower flow temperature is required for the same heating output.
+- Less power from the heating circuit pump is required because the pump does not have to press against unnecessarily limited valves
+  (Note: A differential pressure-controlled pump adapts this automatically).
 
 ### Step 3: Regular operation with deep learning
 
-Das beschriebene Plugin “hydraulischer Abgleich” übergibt in der Folge laufend die maximal erlaubte Öffnung
-jeder Heizschleife an den KI-Regelalgorithmus für Fußbodenheizungen.
+The “hydraulic balancing” plugin subsequently continuously transfers the maximum permitted opening
+each heating loop to the AI ​​control algorithm for underfloor heating.
 
-Dieser analysiert mit Deep-Learning Methoden die Verläufe der Raum- und Rücklauftemperaturen und errechnet
-daraus unter Berücksichtigung von Wettervorhersage-Daten zu jedem Zeitpunkt die optimale Fußbodentemperatur.
-Entsprechend dem Ergebnis wird dann die tatsächliche Öffnung jedes Stellantriebs eingestellt.
+This uses deep learning methods to analyze and calculate the curves of the room and return temperatures
+This results in the optimal floor temperature at any time, taking weather forecast data into account.
+The actual opening of each actuator is then adjusted according to the result.
 
 # Heating controller
+
+An ESP32 8 channels motor controller (shield) | Floor heating controller for proportional actuator.
+
+Can drive up to 8 Homematic valve actuators [HmIP-VDMOT] (Version v57 rev 1.48).
+https://github.com/nliaudat/esp32_8ch_motor_shield/tree/main#new-version-v57-rev-148-
+
+![controller_1](https://github.com/nliaudat/esp32_8ch_motor_shield/blob/main/imgs/v53.PNG)
 
 ![case_1](./assets/case_1.jpg)
 ![case_2](./assets/case_2.jpg)
 ![case_3](./assets/case_3.jpg)
+
+## Firmware
+
+https://github.com/nliaudat/floor-heating-controller
+
+## Floor heating temperatur sensors
+
+1-Wire Bus with DS18B20 temperatur sensors to measure the
+
+- supply flow temperature
+- return flow temperature
+
+for each heating circuit.
+
+Usage of 1-wire temperature sensors (DS18B20):
+https://esphome.io/components/sensor/dallas.html
+
+_"... The 1-Wire bus ... should have an external pullup resistor of about 4.7KΩ. ..."<br>
+"... For this, connect a resistor of about 4.7KΩ between 3.3V and the data pin. ..."<br>
+"... Values ± 1KΩ will, in most cases, work fine as well, if you don’t have massively long wires. ..."_
+
+|1-Wire Bus|Board|DS18B20|Resistor|
+|---|------|-------|--|
+|Power|VCC (3.3. V)|red|~4.7KΩ between Power and Data|
+|Ground|GND|black|-|
+|Data|IO (e.g. IO22)|yellow|~4.7KΩ between Power and Data|
+
+See:
+https://github.com/nliaudat/esp32_8ch_motor_shield/blob/main/extension.md
+
+Note:
+With proper and short cabling more than 16 DS18B20 on the same 1-wire bus seems to be possible.
+
 ![case_4](./assets/case_4.jpg)
 ![case_5](./assets/case_5.jpg)
 ![case_6](./assets/case_6.jpg)
 
 # References
+
+- https://github.com/nliaudat/esp32_8ch_motor_shield
+- https://github.com/nliaudat/floor-heating-controller
 
 - http://www.bosy-online.de/Einstellen_der_Heizkurve.htm
 - https://www.haustechnikdialog.de/SHKwissen/2481/Ruecklauftemperaturregelung
