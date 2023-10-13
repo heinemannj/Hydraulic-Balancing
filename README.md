@@ -253,6 +253,9 @@ https://github.com/nliaudat/esp32_8ch_motor_shield/tree/main#new-version-v57-rev
 
 # References
 
+- https://github.com/nliaudat/esp32_8ch_motor_shield
+- https://github.com/nliaudat/floor-heating-controller
+
 - http://www.bosy-online.de/Einstellen_der_Heizkurve.htm
 - https://www.haustechnikdialog.de/SHKwissen/2481/Ruecklauftemperaturregelung
 - https://www.haustechnikdialog.de/SHKwissen/341/Heizkurve
