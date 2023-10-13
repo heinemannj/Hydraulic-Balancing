@@ -235,6 +235,10 @@ Dieser analysiert mit Deep-Learning Methoden die Verläufe der Raum- und Rückla
 daraus unter Berücksichtigung von Wettervorhersage-Daten zu jedem Zeitpunkt die optimale Fußbodentemperatur.
 Entsprechend dem Ergebnis wird dann die tatsächliche Öffnung jedes Stellantriebs eingestellt.
 
+# Heating controller
+
+![case_1](./assets/case_1.png)
+
 # References
 
 - http://www.bosy-online.de/Einstellen_der_Heizkurve.htm
